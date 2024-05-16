@@ -7,5 +7,6 @@
 
         public Guid AppRoleId { get; set; }
         public AppRole AppRole { get; set; }
+
     }
 }
