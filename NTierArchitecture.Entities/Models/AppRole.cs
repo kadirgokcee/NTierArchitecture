@@ -2,7 +2,7 @@
 
 namespace NTierArchitecture.Entities.Models
 {
-    public sealed class AppRole : IdentityRole
+    public sealed class AppRole : IdentityRole <Guid>
     {
     }
 }
