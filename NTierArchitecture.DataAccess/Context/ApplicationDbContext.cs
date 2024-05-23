@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NTierArchitecture.Entities.Models;
 using System;
@@ -17,7 +18,14 @@ namespace NTierArchitecture.DataAccess.Context
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-           
+            builder.Ignore<IdentityUserLogin<Guid>>();
+            builder.Ignore<IdentityUserRole<Guid>>();
+            builder.Ignore<IdentityUserClaim<Guid>>();
+            builder.Ignore<IdentityUserToken<Guid>>();
+            builder.Ignore<IdentityRoleClaim<Guid>>();
+
+
+            builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         }
     }
 }
