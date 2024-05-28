@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTierArchitecture.DataAcces
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTierArchitecture.Business", "NTierArchitecture.Business\NTierArchitecture.Business.csproj", "{86B7F744-37E4-49CE-B93F-5EF0556F877B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTierArchitecture.WebApi", "NTierArchitecture.WebApi\NTierArchitecture.WebApi.csproj", "{3AD267C1-AD0A-4E17-8366-F974FAA38959}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{86B7F744-37E4-49CE-B93F-5EF0556F877B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86B7F744-37E4-49CE-B93F-5EF0556F877B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86B7F744-37E4-49CE-B93F-5EF0556F877B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AD267C1-AD0A-4E17-8366-F974FAA38959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AD267C1-AD0A-4E17-8366-F974FAA38959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AD267C1-AD0A-4E17-8366-F974FAA38959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AD267C1-AD0A-4E17-8366-F974FAA38959}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,7 +16,9 @@ namespace NTierArchitecture.DataAccess
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddDataAccess(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddDataAccess(
+            this IServiceCollection services,
+            IConfiguration configuration)
         {
             string connectionString = configuration.GetConnectionString("SqlServer");
             services.AddDbContext<ApplicationDbContext>(opt =>
@@ -25,29 +27,22 @@ namespace NTierArchitecture.DataAccess
             });
             services.AddIdentityCore<AppUser>(cfr =>
             {
-                cfr.Password.RequireNonAlphanumeric=false;
+                cfr.Password.RequireNonAlphanumeric = false;
             }).AddEntityFrameworkStores<ApplicationDbContext>();
 
 
             services.AddScoped<IUnitOfWork>(sv => sv.GetRequiredService<ApplicationDbContext>());
 
-            // Scrutor Kütüphanesini indirdikten sonra gerek kalmadı.
-            //services.AddScoped<ICategoryRepository, CategoryRepository>();
-            //services.AddScoped<IProductRepository, ProductRepository>();
-            //services.AddScoped<IUserRoleRepository, UserRoleRepository>();
-
-
             services.Scan(selector => selector
-            .FromAssemblies(
-                typeof(DependencyInjection).Assembly).
-                AddClasses(publicOnly: false)
+                .FromAssemblies(
+                    typeof(DependencyInjection).Assembly)
+                .AddClasses(publicOnly: false)
                 .UsingRegistrationStrategy(RegistrationStrategy.Skip)
                 .AsMatchingInterface()
                 .WithScopedLifetime());
+
+
             return services;
-
         }
-
-
     }
 }

@@ -5,9 +5,8 @@ using System.Linq.Expressions;
 
 namespace NTierArchitecture.DataAccess.Repositories
 {
-    internal class Repository<T> : IRepository<T> where T : class
-
-
+    internal class Repository<T> : IRepository<T>
+    where T : class
     {
         private readonly ApplicationDbContext _context;
 
@@ -19,6 +18,11 @@ namespace NTierArchitecture.DataAccess.Repositories
         public async Task AddAsync(T entity, CancellationToken cancellationToken = default)
         {
             await _context.Set<T>().AddAsync(entity, cancellationToken);
+        }
+
+        public bool Any(Expression<Func<T, bool>> expression)
+        {
+            return _context.Set<T>().Any(expression);
         }
 
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression, CancellationToken cancellationToken = default)
@@ -46,7 +50,7 @@ namespace NTierArchitecture.DataAccess.Repositories
             _context.Remove(entity);
         }
 
-        public void Uptade(T entity)
+        public void Update(T entity)
         {
             _context.Update(entity);
         }

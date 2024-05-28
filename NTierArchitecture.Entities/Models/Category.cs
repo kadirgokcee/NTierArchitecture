@@ -1,8 +1,10 @@
-﻿namespace NTierArchitecture.Entities.Models
+﻿using NTierArchitecture.Entities.Abstraction;
+
+namespace NTierArchitecture.Entities.Models
 {
-    public sealed class Category
+    public sealed class Category : Entity
     {
-        public Guid Id { get; set; }
+      
         public string Name { get; set; }
         public ICollection<Product> Products { get; set;}
     }
